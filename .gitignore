@@ -1,0 +1,17 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+dist/
+.env
+
+# Mobile/Build
+build/
+.gradle/
+.idea/
+
+# General
+*.log
+tmp/
