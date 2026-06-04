@@ -1,3 +1,7 @@
+---
+description: AI 개발 5단계 표준 절차 - Context Loading → Planning → Execution → Verification → Alignment
+---
+
 # AI Development Cycle Workflow
 
 이 워크플로우는 모든 개발 작업에서 반드시 따라야 하는 **5단계 표준 절차**입니다.
@@ -5,12 +9,11 @@
 > 📁 모든 파일 참조는 **프로젝트 루트 기준 상대 경로**입니다.
 > 예: `REGISTRY.md`, `src/auth/login.js`
 
-> 💡 **사용법**: 프로젝트에서 `/dev-cycle` 명령어로 이 워크플로우를 실행합니다.
-> 이 문서는 `.agent/workflows/dev-cycle.md`의 사본입니다.
-
 ---
 
 ## Step 0: Git 초기화 (프로젝트 시작 시 1회)
+
+// turbo
 
 1. Git 저장소가 없으면 `git init` 실행
 2. `.gitignore` 파일 확인/생성
@@ -20,6 +23,8 @@
 ## Step 1: Context Loading (상황 파악)
 
 작업 시작 전 필수 문서를 읽어 현재 상황을 파악합니다.
+
+// turbo
 
 1. `git status`로 현재 작업 상태 확인
 2. `REGISTRY.md` 읽기:
@@ -66,6 +71,8 @@
 
 ### 3-1. 파일 생성/분리 기준
 
+// turbo
+
 1. **Conservative Separation (기본 원칙)**:
    - 새 기능은 **기존 파일에 추가**
    - 처음부터 파일을 분리하지 마세요
@@ -85,6 +92,8 @@
 3. **Critical Components는 절대 삭제 금지**
 
 ### 3-3. Git 커밋 정책
+
+// turbo
 
 1. **기능 단위 커밋**: 하나의 기능이 완성되면 커밋
    ```bash
@@ -119,6 +128,8 @@
 
 ### 4-1. 테스트 방법 (언어별)
 
+// turbo
+
 | 프로젝트 타입 | 명령어        | 성공 기준     |
 | ------------- | ------------- | ------------- |
 | Node.js       | `npm test`    | 에러 0건      |
@@ -145,6 +156,8 @@
 
 작업 종료 후 프로젝트 상태를 업데이트합니다.
 
+// turbo
+
 ### 5-1. Git 최종 커밋
 
 ```bash
@@ -170,6 +183,8 @@ git commit -m "[TASK-ID] 완료: 기능설명"
 
 ### 5-5. REGISTRY.md 동기화 검증
 
+// turbo
+
 1. **Files 섹션**: 실제 파일과 일치하는지 확인
    - 없는 파일이 등록되어 있으면 삭제
    - 있는 파일이 누락되어 있으면 추가
@@ -190,6 +205,8 @@ git commit -m "[TASK-ID] 완료: 기능설명"
 
 ### 시작 전 (필수)
 
+// turbo
+
 ```bash
 # 1. 현재 상태 저장 (안전장치)
 git add .
@@ -200,6 +217,8 @@ git checkout -b fix/[문제설명-간단히]
 ```
 
 ### 각 시도마다 (반복)
+
+// turbo
 
 ```bash
 # 시도 N 시작
@@ -217,6 +236,8 @@ git commit -m "[FIX] 문제설명: 해결 방법"
 ```
 
 ### 해결 완료 후 (필수)
+
+// turbo
 
 ```bash
 # 1. main 브랜치로 복귀
@@ -243,6 +264,8 @@ git branch -d fix/[문제설명-간단히]
 
 문제가 발생하면 다음 절차로 복구:
 
+// turbo
+
 1. `git log -5`로 최근 커밋 확인
 2. 롤백할 커밋 선택
 3. `git revert <commit-hash>` 실행
@@ -253,6 +276,8 @@ git branch -d fix/[문제설명-간단히]
 ## 세션 재시작 가이드
 
 이전 세션이 중단된 경우:
+
+// turbo
 
 1. `TASK.md` → `[/]` 표시된 작업 확인 (마지막 진행 상태)
 2. `DEV_LOG.md` → 최근 3개 항목 확인
